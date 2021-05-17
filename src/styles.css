@@ -7,14 +7,15 @@ body {
 h1 {
   text-align: center;
   text-transform: uppercase;
-  margin: 50px 30px;
+  margin: 50px 0 30px;
   font-weight: 600;
   color: #02475e;
+  font-size: 50px;
 }
 
 footer {
   text-align: center;
-  margin: 20px;
+  margin: 30px;
   padding: 10px;
   font-size: 15px;
   color: #02475e;
@@ -33,7 +34,7 @@ footer a:hover {
 
 .calculator {
   max-width: 400px;
-  margin: 40px auto 20px;
+  margin: 10px auto;
   padding: 20px;
   border: 5px solid #02475e;
   border-radius: 4px;
@@ -47,6 +48,7 @@ footer a:hover {
   border-radius: 4px;
   text-align: right;
   color: aquamarine;
+  min-height: 60px;
 }
 
 .keys {
