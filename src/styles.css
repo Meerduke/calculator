@@ -65,6 +65,14 @@ footer a:hover {
   min-height: 65px;
 }
 
+.previous-calculation {
+  font-size: 15px;
+}
+
+.current-calculation {
+  font-size: 20px;
+}
+
 .keys {
   margin: 20px auto;
 }
