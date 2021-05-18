@@ -1,23 +1,23 @@
 class Calculator {
     constructor(previousCalculationTextElement, currentCalculationTextElement) {
-        this.previousCalculationTextElement = previousCalculationTextElement
-        this.currentCalculationTextElement = currentCalculationTextElement
-        this.clear()
+        this.previousCalculationTextElement = previousCalculationTextElement;
+        this.currentCalculationTextElement = currentCalculationTextElement;
+        this.clear();
     }
 
     clear() {
-        this.currentCalculation = ''
-        this.previousCalculation = ''
-        this.operation = undefined
+        this.currentCalculation = '';
+        this.previousCalculation = '';
+        this.operation = undefined;
     }
 
     delete() {
-        this.currentCalculation = this.currentCalculation.toString().slice(0, -1)
+        this.currentCalculation = this.currentCalculation.toString().slice(0, -1);
     }
 
     addNumber(number) {
         if (number === '.' && this.currentCalculation.includes('.')) return
-        this.currentCalculation = this.currentCalculation.toString() + number.toString()
+        this.currentCalculation = this.currentCalculation.toString() + number.toString();
     }
 
     chooseOperation(operation) {
@@ -25,15 +25,15 @@ class Calculator {
         if (this.previousCalculation !== '') {
             this.compute()
         }
-        this.operation = operation
-        this.previousCalculation = this.currentCalculation
-        this.currentCalculation = ''
+        this.operation = operation;
+        this.previousCalculation = this.currentCalculation;
+        this.currentCalculation = '';
     }
 
     compute() {
-        let computation
-        const prev = parseFloat(this.previousCalculation)
-        const current = parseFloat(this.currentCalculation)
+        let computation;
+        const prev = parseFloat(this.previousCalculation);
+        const current = parseFloat(this.currentCalculation);
         if (isNaN(prev) || isNaN(current)) return
         switch (this.operation) {
                case '+':
@@ -51,37 +51,37 @@ class Calculator {
                default:
                    return 
         }
-        this.currentCalculation = computation
-        this.operation = undefined
-        this.previousCalculation = ''
+        this.currentCalculation = computation;
+        this.operation = undefined;
+        this.previousCalculation = '';
     }
 
     getDisplayNumber(number) {
-        const stringNumber = number.toString()
-        const integerDigits = parseFloat(stringNumber.split('.')[0])
-        const decimalDigits = stringNumber.split('.')[1]
-        let integerDisplay
+        const stringNumber = number.toString();
+        const integerDigits = parseFloat(stringNumber.split('.')[0]);
+        const decimalDigits = stringNumber.split('.')[1];
+        let integerDisplay;
         if (isNaN(integerDigits)) {
             integerDisplay = ''
         } else {
-            integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits:0 })
+            integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits:0 });
         }
         if (decimalDigits != null) {
             return `${integerDisplay}.${decimalDigits}`
         } else {
-            return integerDisplay
+            return integerDisplay;
         }
     }
 
     updateDisplay() {
-        this.currentCalculationTextElement.innerText = this.getDisplayNumber(this.currentCalculation)
+        this.currentCalculationTextElement.innerText = this.getDisplayNumber(this.currentCalculation);
         if (this.operation != null) {
             this.previousCalculationTextElement.innerText = `${this.getDisplayNumber(this.previousCalculation)} ${this.operation}`
     } else {
-        this.previousCalculationTextElement.innerText = ''
+        this.previousCalculationTextElement.innerText = '';
     }
 }
-}
+};
 
 
 const numberButtons = document.querySelectorAll('[data-number]');
